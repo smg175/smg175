@@ -11274,7 +11274,7 @@ body {
 /* ── Background behind the quiz ── */
 .quiz-background-wrapper {
     /* Put the exact name of your image file here */
-    background-image: url('assets/Moviebg.jpg'); 
+    background-image: url('smg175/assets/Moviebg.jpg'); 
     
     /* These three lines make sure the image looks great and fits the space */
     background-size: cover;       /* Ensures the image fills the whole space without squishing */
