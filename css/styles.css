@@ -11273,15 +11273,13 @@ body {
 
 /* ── Background behind the quiz ── */
 .quiz-background-wrapper {
-    /* Set this to whatever color you want behind the quiz! 
-       Using a soft gray/blue here as a placeholder. */
-    background-color: #f0f6fb; 
+    /* Put the exact name of your image file here */
+    background-image: url('/assets/Moviebg.jpg'); 
     
-    /* If you want an image instead, delete the color above and uncomment these lines: */
-    /* background-image: url('../assets/your-background-image.jpg'); */
-    /* background-size: cover; */
-    /* background-position: center; */
-    /* background-repeat: no-repeat; */
+    /* These three lines make sure the image looks great and fits the space */
+    background-size: cover;       /* Ensures the image fills the whole space without squishing */
+    background-position: center;  /* Keeps the image centered so the edges crop evenly */
+    background-repeat: no-repeat; /* Prevents the image from tiling over and over */
 }
 
 /* Make sure the quiz card itself stays white and pops out */

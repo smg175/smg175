@@ -101,3 +101,42 @@ h2 {
     border-bottom: 2px solid #f0f6fb;
     padding-bottom: 5px;
 }
+
+/* Back button styling */
+.btn-back {
+    color: #4A7FA5;
+    font-family: Arial, Helvetica, sans-serif; /* Matching the from-scratch font */
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 20px; /* Gives it some breathing room */
+}
+
+/* What happens when you hover over the button */
+.btn-back:hover {
+    color: #3B6A8C;
+    text-decoration: underline;
+}
+/* Styling for the favorite works section */
+.favorite-work {
+    margin-bottom: 25px; /* Spaces the items out vertically */
+    padding: 15px 20px; /* Gives the text some breathing room inside the box */
+    background-color: #f9fbfd; /* A very light tint of your accent color */
+    border-left: 4px solid #4A7FA5; /* A thick accent line on the left side */
+}
+
+/* Targeting the specific heading size inside the favorite-work divs */
+.favorite-work h3 {
+    margin-top: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    color: #3B6A8C; /* A slightly darker shade of your accent color */
+    font-size: 1.2rem;
+}
+
+/* Removing the bottom margin on the paragraph so the box padding stays even */
+.favorite-work p {
+    margin-bottom: 0;
+    line-height: 1.5; /* Makes the paragraph a bit easier to read */
+}
