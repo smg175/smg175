@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Santiago Muñoz - About</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap Icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+        <!-- SimpleLightbox plugin CSS-->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 navbar-shrink" id="mainNav">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="index.html">Santiago Muñoz</a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto my-2 my-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="index.html">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="resume.html">Resume</a></li>
+                        <li class="nav-item"><a class="nav-link" href="webapp.html">Web App</a></li>
+                        <li class="nav-item"><a class="nav-link" href="tableau.html">Tableau</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+<body id="page-top" class="subpage">
+    
+    <!-- Hero -->
+    <div class="quiz-hero">
+        <div class="container">
+            <h1>Let me recommend you a film...</h1>
+            <p>These all come from my personal favourite films. Answer some questions, tell me what you like. <br>I'll pick one I think you'll love.</p>
+        </div>
+    </div>
+
+    <!-- Quiz -->
+    <section class="page-section" style="padding: 3rem 0 5rem 0;">
+        <div class="container px-4 px-lg-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-7 col-md-9">
+                    <div class="quiz-card" id="quizCard">
+                        <!-- Injected by JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+   <footer class="bg-light py-5">
+            <div class="container px-4 px-lg-5"><div class="small text-center text-muted">IS201 - Web Development Project</div></div>
+        </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+
+    // ─────────────────────────────────────────────────────────────
+    //  MOVIES
+    //  Tags:
+    //    structure: "fragmented" | "journey" | "still"
+    //    theme:     "longing" | "mortality" | "connection" | "alienation" | "memory"
+    //    world:     "interior" | "exterior"
+    //    tone:      "spiritual" | "human" | "detached"
+    // ─────────────────────────────────────────────────────────────
+    const MOVIES = [
+        {
+            title: "Nostalghia",
+            year: "Andrei Tarkovsky, 1983",
+            description: "A Russian poet travels through Italy, paralysed by an exile's grief he cannot name. Tarkovsky's most meditative film — less a story than a sustained, spiritual journey. Watch it alone, in silence.",
+            tags: { structure: "still", theme: "longing", world: "interior", tone: "spiritual" }
+        },
+        {
+            title: "Eternity and a Day",
+            year: "Theo Angelopoulos, 1998",
+            description: "A dying writer spends one last day wandering Thessaloniki with a young Albanian boy he barely knows. Grief and tenderness fold into each other across long, slow, magnificent shots.",
+            tags: { structure: "journey", theme: "mortality", world: "exterior", tone: "human" }
+        },
+        {
+            title: "Alice in den Städten",
+            year: "Wim Wenders, 1974",
+            description: "A journalist and a nine-year-old girl drift through Germany looking for a grandmother neither of them knows. A road movie about strangers, cities, and the quiet comfort of not being alone.",
+            tags: { structure: "journey", theme: "connection", world: "exterior", tone: "human" }
+        },
+        {
+            title: "L'Eclisse",
+            year: "Michelangelo Antonioni, 1962",
+            description: "A woman ends one love affair and begins another in Rome's glass-and-steel financial district. Antonioni holds modern alienation up to the light and finds it beautiful, and frightening.",
+            tags: { structure: "still", theme: "alienation", world: "exterior", tone: "detached" }
+        },
+        {
+            title: "Mirror",
+            year: "Andrei Tarkovsky, 1975",
+            description: "Not a film so much as a memory — childhood, war, guilt, and poetry assembled in fragments that refuse to stay in order. Tarkovsky's most personal and most dreamlike work.",
+            tags: { structure: "fragmented", theme: "memory", world: "interior", tone: "spiritual" }
+        },
+    ];
+
+    // ─────────────────────────────────────────────────────────────
+    //  QUESTIONS
+    // ─────────────────────────────────────────────────────────────
+    const QUESTIONS = [
+        {
+            tag: "structure",
+            question: "How do you want the film to unfold?",
+            options: [
+                { icon: "🌀", label: "In fragments — images, dreams and memories bleeding into one another", value: "fragmented" },
+                { icon: "🚶", label: "As a journey — moving through places and encounters",                  value: "journey" },
+                { icon: "🪨", label: "Barely at all — let time stretch and hold still",                     value: "still" },
+            ]
+        },
+        {
+            tag: "theme",
+            question: "What feeling is closest to where you are tonight?",
+            options: [
+                { icon: "🏠", label: "The ache of longing — for home, for something lost",    value: "longing" },
+                { icon: "⏳", label: "Time running out — what a life amounted to",            value: "mortality" },
+                { icon: "🤝", label: "Two strangers finding each other unexpectedly",         value: "connection" },
+                { icon: "🏙️", label: "The quiet coldness of modern life",                    value: "alienation" },
+                { icon: "🧒", label: "Childhood, memory, who we were and who we became",     value: "memory" },
+            ]
+        },
+        {
+            tag: "world",
+            question: "Where does the film live?",
+            options: [
+                { icon: "🧠", label: "Entirely inside — in the mind, in feeling, in dream", value: "interior" },
+                { icon: "🗺️", label: "Out in the world — cities, roads, real landscapes",  value: "exterior" },
+            ]
+        },
+        {
+            tag: "tone",
+            question: "What do you want to feel when it ends?",
+            options: [
+                { icon: "🕯️", label: "Something vast and spiritual — shaken in a quiet way",  value: "spiritual" },
+                { icon: "🫂", label: "Quietly moved by another human being",                   value: "human" },
+                { icon: "🚪", label: "Unsettled — as if something was withheld from you",      value: "detached" },
+            ]
+        },
+    ];
+
+    // ─────────────────────────────────────────────────────────────
+    //  QUIZ ENGINE — no need to edit below this line
+    // ─────────────────────────────────────────────────────────────
+    let currentStep = 0;
+    const answers = {};
+
+    function render() {
+        if (currentStep < QUESTIONS.length) {
+            renderQuestion();
+        } else {
+            renderResult();
+        }
+    }
+
+    function renderQuestion() {
+        const q = QUESTIONS[currentStep];
+        const progress = ((currentStep) / QUESTIONS.length) * 100;
+        const selected = answers[q.tag];
+
+        const optionsHTML = q.options.map(opt => `
+            <button class="quiz-option ${selected === opt.value ? 'selected' : ''}"
+                    onclick="selectOption('${q.tag}', '${opt.value}')">
+                <span class="option-icon">${opt.icon}</span>
+                <span>${opt.label}</span>
+            </button>
+        `).join('');
+
+        document.getElementById('quizCard').innerHTML = `
+            <div class="quiz-step">
+                <div class="quiz-progress">
+                    <div class="quiz-progress-fill" style="width: ${progress}%"></div>
+                </div>
+                <div class="quiz-step-label">Question ${currentStep + 1} of ${QUESTIONS.length}</div>
+                <div class="quiz-question">${q.question}</div>
+                <div class="quiz-options">${optionsHTML}</div>
+                <div class="quiz-nav">
+                    <button class="btn-quiz-back" onclick="goBack()" ${currentStep === 0 ? 'style="visibility:hidden"' : ''}>
+                        ← Back
+                    </button>
+                    <button class="btn-quiz-next" onclick="goNext()" ${!selected ? 'disabled' : ''}>
+                        ${currentStep === QUESTIONS.length - 1 ? 'See My Film →' : 'Next →'}
+                    </button>
+                </div>
+            </div>
+        `;
+    }
+
+    function selectOption(tag, value) {
+        answers[tag] = value;
+        render();
+    }
+
+    function goNext() {
+        const q = QUESTIONS[currentStep];
+        if (!answers[q.tag]) return;
+        currentStep++;
+        render();
+    }
+
+    function goBack() {
+        if (currentStep > 0) {
+            currentStep--;
+            render();
+        }
+    }
+
+    function getBestMatch() {
+        // Score each movie by how many tags match the user's answers
+        const scores = MOVIES.map(movie => {
+            let score = 0;
+            for (const tag in answers) {
+                if (movie.tags[tag] === answers[tag]) score++;
+            }
+            return { movie, score };
+        });
+        scores.sort((a, b) => b.score - a.score);
+        return scores[0].movie;
+    }
+
+    function renderResult() {
+        const movie = getBestMatch();
+        document.getElementById('quizCard').innerHTML = `
+            <div class="quiz-step result-card">
+                <div class="result-badge">Your pick</div>
+                <div class="result-title">${movie.title}</div>
+                <div class="result-year">${movie.year}</div>
+                <div class="result-divider"></div>
+                <div class="result-description">${movie.description}</div>
+                <button class="btn-retake" onclick="retake()">Retake the quiz</button>
+            </div>
+        `;
+    }
+
+    function retake() {
+        currentStep = 0;
+        for (const key in answers) delete answers[key];
+        render();
+    }
+
+    // Start
+    render();
+    
+
+    </script>
+
+    <script src="js/scripts.js"></script>
+</body>
+</html>
